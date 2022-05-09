@@ -100,17 +100,7 @@ include_once('./header.php');
     </div>
     
 
-        <div class="write_div">
-        
-<script>var g5_captcha_url  = "http://localhost/gnuboard5-5.5.7.1/gnuboard5-5.5.7.1/plugin/kcaptcha";</script>
-<script src="http://localhost/gnuboard5-5.5.7.1/gnuboard5-5.5.7.1/plugin/kcaptcha/kcaptcha.js"></script>
-<fieldset id="captcha" class="captcha">
-<legend><label for="captcha_key">자동등록방지</label></legend>
-<img src="http://localhost/gnuboard5-5.5.7.1/gnuboard5-5.5.7.1/plugin/kcaptcha/kcaptcha_image.php?t=1651823177578" alt="" id="captcha_img"><input type="text" name="captcha_key" id="captcha_key" required="" class="captcha_box required" size="6" maxlength="6">
-<button type="button" id="captcha_mp3"><span></span>숫자음성듣기</button>
-<button type="button" id="captcha_reload"><span></span>새로고침</button>
-<span id="captcha_info">자동등록방지 숫자를 순서대로 입력하세요.</span>
-</fieldset>    </div>
+
     
     <div class="btn_confirm write_div">
         <a href="http://localhost/gnuboard5-5.5.7.1/gnuboard5-5.5.7.1/bbs/board.php?bo_table=free" class="btn_cancel btn">취소</a>

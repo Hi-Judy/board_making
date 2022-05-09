@@ -201,11 +201,11 @@ if ($w == '' || $w == 'u') {
     alert('w 값이 제대로 넘어오지 않았습니다.');
 }
 
-$is_use_captcha = ((($board['bo_use_captcha'] && $w !== 'u') || $is_guest) && !$is_admin) ? 1 : 0;
+// $is_use_captcha = ((($board['bo_use_captcha'] && $w !== 'u') || $is_guest) && !$is_admin) ? 1 : 0;
 
-if ($is_use_captcha && !chk_captcha()) {
-    alert('자동등록방지 숫자가 틀렸습니다.');
-}
+// if ($is_use_captcha && !chk_captcha()) {
+//     alert('자동등록방지 숫자가 틀렸습니다.');
+// }
 
 if ($w == '' || $w == 'r') {
     if (isset($_SESSION['ss_datetime'])) {
@@ -256,40 +256,77 @@ if ($w == '' || $w == 'r') {
         $wr_reply = '';
     }
 
-    $sql = " insert into $write_table
+    // $sql = " insert into $write_table
+    //             set wr_num = '$wr_num',
+    //                  wr_reply = '$wr_reply',
+    //                  wr_comment = 0,
+    //                  ca_name = '$ca_name',
+    //                  wr_option = '$wr_option',
+    //                  wr_subject = '$wr_subject',
+    //                  wr_content = '$wr_content',
+    //                  wr_seo_title = '$wr_seo_title',
+    //                  wr_link1 = '$wr_link1',
+    //                  wr_link2 = '$wr_link2',
+    //                  wr_link1_hit = 0,
+    //                  wr_link2_hit = 0,
+    //                  wr_hit = 0,
+    //                  wr_good = 0,
+    //                  wr_nogood = 0,
+    //                  mb_id = '{$member['mb_id']}',
+    //                  wr_password = '$wr_password',
+    //                  wr_name = '$wr_name',
+    //                  wr_email = '$wr_email',
+    //                  wr_homepage = '$wr_homepage',
+    //                  wr_datetime = '".G5_TIME_YMDHIS."',
+    //                  wr_last = '".G5_TIME_YMDHIS."',
+    //                  wr_ip = '{$_SERVER['REMOTE_ADDR']}',
+    //                  wr_1 = '$wr_1',
+    //                  wr_2 = '$wr_2',
+    //                  wr_3 = '$wr_3',
+    //                  wr_4 = '$wr_4',
+    //                  wr_5 = '$wr_5',
+    //                  wr_6 = '$wr_6',
+    //                  wr_7 = '$wr_7',
+    //                  wr_8 = '$wr_8',
+    //                  wr_9 = '$wr_9',
+    //                  wr_10 = '$wr_10' ";
+
+    $sql = "insert into g5_board_table
                 set wr_num = '$wr_num',
-                     wr_reply = '$wr_reply',
-                     wr_comment = 0,
-                     ca_name = '$ca_name',
-                     wr_option = '$wr_option',
-                     wr_subject = '$wr_subject',
-                     wr_content = '$wr_content',
-                     wr_seo_title = '$wr_seo_title',
-                     wr_link1 = '$wr_link1',
-                     wr_link2 = '$wr_link2',
-                     wr_link1_hit = 0,
-                     wr_link2_hit = 0,
-                     wr_hit = 0,
-                     wr_good = 0,
-                     wr_nogood = 0,
-                     mb_id = '{$member['mb_id']}',
-                     wr_password = '$wr_password',
-                     wr_name = '$wr_name',
-                     wr_email = '$wr_email',
-                     wr_homepage = '$wr_homepage',
-                     wr_datetime = '".G5_TIME_YMDHIS."',
-                     wr_last = '".G5_TIME_YMDHIS."',
-                     wr_ip = '{$_SERVER['REMOTE_ADDR']}',
-                     wr_1 = '$wr_1',
-                     wr_2 = '$wr_2',
-                     wr_3 = '$wr_3',
-                     wr_4 = '$wr_4',
-                     wr_5 = '$wr_5',
-                     wr_6 = '$wr_6',
-                     wr_7 = '$wr_7',
-                     wr_8 = '$wr_8',
-                     wr_9 = '$wr_9',
-                     wr_10 = '$wr_10' ";
+                wr_reply = '$wr_reply',
+                wr_comment = 0,
+                ca_name = '$ca_name',
+                wr_option = '$wr_option',
+                wr_subject = '$wr_subject',
+                wr_content = '$wr_content',
+                wr_seo_title = '$wr_seo_title',
+                wr_link1 = '$wr_link1',
+                wr_link2 = '$wr_link2',
+                wr_link1_hit = 0,
+                wr_link2_hit = 0,
+                wr_hit = 0,
+                wr_good = 0,
+                wr_nogood = 0,
+                mb_id = '{$member['mb_id']}',
+                wr_password = '$wr_password',
+                wr_name = '$wr_name',
+                wr_email = '$wr_email',
+                wr_homepage = '$wr_homepage',
+                wr_datetime = '".G5_TIME_YMDHIS."',
+                wr_last = '".G5_TIME_YMDHIS."',
+                wr_ip = '{$_SERVER['REMOTE_ADDR']}',
+                wr_1 = '$wr_1',
+                wr_2 = '$wr_2',
+                wr_3 = '$wr_3',
+                wr_4 = '$wr_4',
+                wr_5 = '$wr_5',
+                wr_6 = '$wr_6',
+                wr_7 = '$wr_7',
+                wr_8 = '$wr_8',
+                wr_9 = '$wr_9',
+                wr_10 = '$wr_10' ";
+    
+    
     sql_query($sql);
 
     $wr_id = sql_insert_id();
@@ -748,7 +785,7 @@ if (!($w == 'u' || $w == 'cu') && $config['cf_email_use'] && $board['bo_use_emai
 
 delete_cache_latest($bo_table);
 
-$redirect_url = run_replace('write_update_move_url', short_url_clean(G5_HTTP_BBS_URL.'/board.php?bo_table='.$bo_table.'&amp;wr_id='.$wr_id.$qstr), $board, $wr_id, $w, $qstr, $file_upload_msg);
+$redirect_url = run_replace('write_update_move_url', short_url_clean(G5_JUHEE_URL.'/board_view.php?bo_table='.$bo_table.'&amp;wr_id='.$wr_id.$qstr), $board, $wr_id, $w, $qstr, $file_upload_msg);
 
 run_event('write_update_after', $board, $wr_id, $w, $qstr, $redirect_url);
 

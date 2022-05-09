@@ -41,11 +41,11 @@ if($sfl && $stx){
     $sql_search = 'where '.$sfl.' like "%'.$stx.'%"';
 }
 
-$sql = " SELECT COUNT(DISTINCT `wr_parent`) AS `cnt` FROM board_table ".$sql_search;
+$sql = " SELECT COUNT(DISTINCT `wr_id`) AS `cnt` FROM g5_board_table ".$sql_search;
 $row = sql_fetch($sql);
 $total_count = $row['cnt'];
 
-$sql = "select * from board_table ".$sql_search;
+$sql = "select * from g5_board_table ".$sql_search;
 $result = sql_query($sql);
 $i = 0;
 $k = 0;

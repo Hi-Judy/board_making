@@ -8,7 +8,7 @@
 
     $wr_id = $_GET['wr_id'];
 
-    $sql = "select * from board_table where wr_id = ".$wr_id;
+    $sql = "select * from g5_board_table where wr_id = ".$wr_id;
     $row = sql_fetch($sql);
 
     //add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0);
