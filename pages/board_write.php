@@ -272,5 +272,5 @@ $(function() {
 
 <!-- 하단 -->
 <?php 
-    include_once(G5_PATH.'/tail.php');
+    include_once('./foot.php');
 ?>
