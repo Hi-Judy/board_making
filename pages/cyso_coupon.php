@@ -36,7 +36,7 @@ if($issue_coupon){
     $cp_type = 0;
     $cp_trunc = 1;
     $cp_minimum = 21000;
-    $cp_maximum = 0;
+    $cp_maximum = 0; 
     $od_id = 0;
     $cp_datetime = '2022-01-01';
 
